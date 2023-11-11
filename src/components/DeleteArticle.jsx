@@ -6,6 +6,7 @@ import { deleteObject, ref } from "firebase/storage";
 
 export default function DeleteArticle({ id, imageUrl }) {
   const handleDelete = async () => {
+    
     if (window.confirm("Are you sure you want to delete this article?")) {
       try {
         await deleteDoc(doc(db, "Articles", id));
@@ -20,7 +21,11 @@ export default function DeleteArticle({ id, imageUrl }) {
   };
   return (
     <div>
-      <button className='btn btn-danger' onClick= {handleDelete}>Delete</button>
+     <i
+        className="fa fa-times"
+        onClick={handleDelete}
+        style={{ cursor: "pointer" }}
+      />
     </div>
 
   );
